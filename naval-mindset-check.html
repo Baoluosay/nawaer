@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="gold">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<!-- 要換：頁面標題、分享時顯示的描述 -->
+<title>《納瓦爾寶典》10 題自評｜保羅所長</title>
+<meta name="description" content="用 10 題檢視你的財富習慣、判斷力與生活選擇，選完一題就揭曉一個自評句。">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── 版型：沿用 2026-08-06-chatgpt-setup／2026-10-01-7-habits 的米色＋金橘 ── */
+:root{
+  --gold:#D4902A; --gold-bright:#E8A94A; --gold-dim:rgba(var(--a-rgb),0.30);
+  --bg:#F4F1EA; --bg2:#FBF8F2; --card:#FFFFFF; --card2:#FAF6EE;
+  --code:#12161f; --code-tx:#e6eaf2;
+  --text:#2c2a26; --dim:#6d6a62; --faint:#a8a39a; --ink:#2a2620;
+  --line:rgba(0,0,0,0.12);
+  --ok:#4a7c3f; --ok-bg:rgba(74,124,63,0.07); --ok-line:rgba(74,124,63,0.25);
+  --no:#b1431f; --no-bg:rgba(200,70,40,0.06); --no-line:rgba(200,70,40,0.22);
+  --dark:linear-gradient(160deg,#15110b 0%,#241a0e 100%);
+  --r-md:16px; --r-lg:22px; --pill:50px;
+  --bounce:400ms cubic-bezier(0.34,1.56,0.64,1);
+  --a-rgb:212,144,42; --sh-rgb:120,90,30; --bg-rgb:244,241,234; --on-accent:#1a1406;
+  --serif:"Noto Serif TC",serif; --sans:"Noto Sans TC","Inter",sans-serif; --mono:"JetBrains Mono",monospace;
+}
+/* ── 配色：改 <html data-theme="…"> 就會換。gold 米金／green 墨綠／navy 海軍藍／rose 乾燥玫瑰 ── */
+html[data-theme="green"]{--gold:#3F7D5C;--gold-bright:#5B9A77;--a-rgb:63,125,92;--bg:#EEF2EC;--bg2:#F7F9F5;--card2:#F3F6F1;--bg-rgb:238,242,236;--sh-rgb:40,70,50;--ink:#1f2a24;--on-accent:#ffffff;}
+html[data-theme="navy"]{--gold:#2F5D8C;--gold-bright:#4A7AAA;--a-rgb:47,93,140;--bg:#EDF1F5;--bg2:#F7F9FB;--card2:#F2F5F9;--bg-rgb:237,241,245;--sh-rgb:30,50,80;--ink:#1d2632;--on-accent:#ffffff;}
+html[data-theme="rose"]{--gold:#B5656B;--gold-bright:#C98389;--a-rgb:181,101,107;--bg:#F6EFEE;--bg2:#FBF7F6;--card2:#F8F1F0;--bg-rgb:246,239,238;--sh-rgb:110,60,60;--ink:#2e2324;--on-accent:#ffffff;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);color:var(--text);line-height:1.85;overflow-x:hidden;background:var(--bg);
+  background-image:radial-gradient(118% 54% at 50% 0%, rgba(var(--a-rgb),0.16) 0%, rgba(var(--a-rgb),0.05) 34%, rgba(var(--bg-rgb),0) 62%);
+  background-attachment:fixed;}
+.glow{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.g1{position:absolute;width:min(60vw,680px);height:min(60vw,680px);border-radius:50%;background:radial-gradient(circle, rgba(var(--a-rgb),0.13), rgba(var(--a-rgb),0));top:-18%;right:-14%;filter:blur(20px);}
+.g2{position:absolute;width:min(50vw,560px);height:min(50vw,560px);border-radius:50%;background:radial-gradient(circle, rgba(var(--a-rgb),0.12), rgba(var(--a-rgb),0));bottom:-14%;left:-12%;filter:blur(22px);}
+.wrap{max-width:720px;margin:0 auto;position:relative;}
+.js .fade{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+.fade.vis{opacity:1;transform:translateY(0);}
+a{color:var(--gold);text-decoration:none;}
+.g{color:var(--gold);}
+
+/* ═════ ① 懸浮按鈕：電腦版掛右側、手機版浮在底部；滑到研究所介紹時自動收起 ═════ */
+.float-cta{position:fixed;z-index:40;transition:opacity .3s ease,transform .3s ease;}
+.float-cta.hide{opacity:0;pointer-events:none;}
+.fc-card{display:none;}
+.fc-pill{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:var(--on-accent);font-weight:900;font-size:15px;padding:14px 26px;border-radius:var(--pill);box-shadow:0 10px 28px rgba(var(--sh-rgb),0.32);white-space:nowrap;}
+.fc-pill .ar{transition:transform .2s;}
+.fc-pill:hover .ar{transform:translateX(3px);}
+/* 手機／平板：底部置中 */
+@media(max-width:1119px){
+  .float-cta{left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);}
+  .float-cta.hide{transform:translate(-50%,20px);}
+  body{padding-bottom:84px;}
+}
+/* 電腦：右側卡片 */
+@media(min-width:1120px){
+  .float-cta{top:120px;right:max(24px,calc((100vw - 720px)/2 - 272px));width:240px;}
+  .float-cta.hide{transform:translateX(16px);}
+  .fc-pill{display:none;}
+  .fc-card{display:block;background:linear-gradient(165deg,var(--card) 0%,var(--card2) 100%);border:1px solid var(--gold-dim);border-left:3px solid var(--gold);border-radius:var(--r-md);padding:20px 20px 22px;box-shadow:0 10px 34px rgba(var(--sh-rgb),0.13);}
+  .fc-card .k{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;color:var(--gold);margin-bottom:10px;font-weight:500;}
+  .fc-card h4{font-family:var(--serif);font-weight:900;font-size:17px;line-height:1.5;color:var(--ink);margin-bottom:9px;}
+  .fc-card p{font-size:12.5px;color:var(--dim);line-height:1.7;margin-bottom:16px;}
+  .fc-card a{display:block;text-align:center;background:var(--gold);color:var(--on-accent);font-weight:900;font-size:14px;padding:12px 14px;border-radius:var(--pill);box-shadow:0 6px 18px rgba(var(--a-rgb),0.26);transition:transform var(--bounce);}
+  .fc-card a:hover{transform:translateY(-2px);}
+}
+
+/* ═════ 開頭：只交代「這頁是什麼」，自介移到最下面 ═════ */
+.hero{position:relative;z-index:1;padding:60px 30px 36px;}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:0.2em;color:var(--gold);margin-bottom:20px;font-weight:500;}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:36px;line-height:1.36;margin-bottom:14px;color:var(--ink);}
+.hero .h-sub{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--gold);margin-bottom:14px;}
+.hero-sub{font-size:15px;color:var(--dim);line-height:1.85;margin-bottom:24px;}
+/* 這頁有什麼：數字跟單位寫在一起，點了直接跳到那一段 */
+.toc{margin-bottom:24px;}
+.toc .tt{font-size:12px;font-weight:700;color:var(--dim);letter-spacing:0.05em;margin-bottom:8px;}
+.toc ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
+.toc a{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--gold-dim);border-radius:var(--pill);padding:7px 15px;font-size:14px;font-weight:700;color:var(--ink);transition:border-color .2s;}
+.toc a:hover{border-color:var(--gold);}
+.toc a b{font-family:"Inter";font-weight:800;color:var(--gold);}
+.toc a i{font-style:normal;color:var(--gold);font-size:12px;}
+/* 自介卡：全站固定。上面一句是對讀者的承諾，下面是證明 */
+.mid-intro{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--r-md);padding:16px 20px;margin-bottom:24px;}
+.mid-intro .slogan{font-family:var(--serif);font-weight:900;font-size:min(18px,4vw);white-space:nowrap;line-height:1.45;color:var(--ink);margin-top:12px;}
+
+.mid-intro .who{display:flex;align-items:center;gap:14px;}
+.mid-intro .who img{width:76px;height:76px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);}
+.mid-intro .nm{font-weight:900;font-size:16px;line-height:1.3;color:var(--ink);}
+.mid-intro .tt2{font-size:12px;color:var(--dim);line-height:1.4;}
+.mid-intro .proof{display:flex;align-items:flex-end;gap:14px;border-top:1px dashed var(--line);margin-top:12px;padding-top:11px;}
+.mid-intro .num{flex-shrink:0;line-height:1.2;}
+.mid-intro .num .d{font-size:11px;color:var(--dim);}
+.mid-intro .num .v{font-family:"Inter";font-weight:800;font-size:18px;color:var(--gold);white-space:nowrap;}
+.mid-intro .txt{font-size:14.5px;line-height:1.6;color:var(--text);padding-left:14px;border-left:1px solid var(--line);}
+.mid-intro .txt b{color:var(--ink);}
+.m-br{display:none;}
+
+/* ═════ ② 乾貨區 ═════ */
+.sec{position:relative;z-index:1;padding:38px 30px;border-top:1px solid var(--line);}
+.sec-tag{display:inline-block;background:rgba(var(--a-rgb),0.14);color:var(--gold);font-size:12px;font-weight:700;padding:5px 15px;border:1px solid var(--gold-dim);border-radius:var(--pill);margin-bottom:16px;letter-spacing:0.05em;}
+.sec h2{font-family:var(--serif);font-weight:900;font-size:24px;line-height:1.42;margin-bottom:14px;color:var(--ink);}
+.sec>p{font-size:15px;color:var(--text);line-height:1.9;margin-bottom:14px;}
+.tipline{font-size:13.5px;color:var(--dim);line-height:1.75;border-left:2px solid var(--gold-dim);padding-left:14px;margin:13px 0 2px;}
+.tipline b{color:var(--gold);}
+
+.tblwrap{overflow-x:auto;margin:12px 0 4px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--card);}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px;}
+.tbl th{background:rgba(var(--a-rgb),0.12);color:var(--gold);font-weight:700;text-align:left;padding:10px 13px;border-bottom:2px solid var(--gold-dim);white-space:nowrap;}
+.tbl td{padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6;}
+.tbl td:first-child{font-family:"Inter";font-weight:800;color:var(--gold);}
+.tbl td:nth-child(2){font-weight:700;color:var(--ink);white-space:nowrap;}
+.tbl tr:last-child td{border-bottom:none;}
+
+.acc{display:flex;flex-direction:column;gap:10px;}
+details.ch{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;}
+details.ch[open]{border-color:var(--gold-dim);box-shadow:0 4px 18px rgba(var(--sh-rgb),0.07);}
+details.ch summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:16px 18px;user-select:none;}
+details.ch summary::-webkit-details-marker{display:none;}
+.ch-n{flex-shrink:0;min-width:34px;height:30px;border-radius:8px;background:rgba(var(--a-rgb),0.14);border:1px solid var(--gold-dim);color:var(--gold);font-family:var(--mono);font-size:12px;display:flex;align-items:center;justify-content:center;}
+.ch-t{flex:1;font-weight:700;font-size:14.5px;line-height:1.4;}
+.ch-t .en{font-weight:400;color:var(--dim);font-size:12.5px;}
+.ch-mk{flex-shrink:0;width:22px;height:22px;position:relative;}
+.ch-mk::before,.ch-mk::after{content:"";position:absolute;background:var(--gold);border-radius:2px;transition:transform .25s ease,opacity .25s;}
+.ch-mk::before{top:10px;left:4px;width:14px;height:2px;}
+.ch-mk::after{top:4px;left:10px;width:2px;height:14px;}
+details.ch[open] .ch-mk::after{transform:rotate(90deg);opacity:0;}
+.ch-body{padding:6px 18px 18px;border-top:1px solid var(--line);}
+.ch-body p{font-size:14px;line-height:1.82;margin:10px 0;}
+.pos{background:rgba(var(--a-rgb),0.08);border:1px solid var(--gold-dim);border-radius:12px;padding:11px 14px;margin:10px 0 2px;font-size:13.6px;line-height:1.72;}
+.pos b{color:var(--gold);}
+.judge{border-radius:12px;padding:11px 14px;margin:7px 0;font-size:13.6px;line-height:1.72;}
+.judge.no{background:var(--no-bg);border:1px solid var(--no-line);color:#7a3320;}
+.judge.ok{background:var(--ok-bg);border:1px solid var(--ok-line);color:#2f5228;}
+.judge .jl{font-weight:700;font-size:11.5px;letter-spacing:0.05em;display:block;margin-bottom:2px;}
+.judge.no .jl{color:var(--no);}
+.judge.ok .jl{color:var(--ok);}
+
+.cp{background:var(--code);border:2px solid var(--gold);border-radius:var(--r-md);padding:16px;margin:12px 0 2px;position:relative;box-shadow:0 10px 34px rgba(var(--sh-rgb),0.16);}
+.cp .pl{font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;color:var(--gold-bright);margin-bottom:11px;max-width:calc(100% - 96px);}
+.cp pre{font-family:var(--mono);font-size:12px;line-height:1.85;color:var(--code-tx);white-space:pre-wrap;word-break:break-word;}
+.cp .ph{color:var(--gold-bright);}
+.copy-btn{position:absolute;top:11px;right:11px;background:var(--gold);border:1px solid var(--gold);color:var(--on-accent);font-family:var(--sans);font-size:12px;font-weight:700;padding:7px 16px;border-radius:50px;cursor:pointer;}
+
+.ck{display:flex;gap:11px;align-items:flex-start;padding:9px 0;cursor:pointer;border-bottom:1px dashed var(--line);}
+.ck:last-of-type{border-bottom:none;}
+.ck input{appearance:none;-webkit-appearance:none;flex-shrink:0;width:19px;height:19px;margin-top:4px;border:2px solid var(--gold-dim);border-radius:5px;background:var(--bg2);cursor:pointer;position:relative;transition:all .18s;}
+.ck input:checked{background:var(--gold);border-color:var(--gold);}
+.ck input:checked::after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid var(--on-accent);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+.ck span{font-size:14.5px;line-height:1.7;}
+.ck input:checked + span{color:var(--faint);text-decoration:line-through;}
+.cklist{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--r-md);padding:8px 18px;}
+
+/* ═════ ③ 研究所介紹：跟上面同一套米色＋白卡，不另外換成深色 ═════ */
+.inst{position:relative;z-index:1;padding:44px 30px 40px;border-top:1px solid var(--line);}
+.inst .kk{display:inline-block;background:rgba(var(--a-rgb),0.14);color:var(--gold);font-size:12px;font-weight:700;padding:5px 15px;border:1px solid var(--gold-dim);border-radius:var(--pill);margin-bottom:16px;letter-spacing:0.05em;}
+.inst h2{font-family:var(--serif);font-weight:900;font-size:24px;line-height:1.42;margin-bottom:16px;color:var(--ink);}
+.inst h2 .g{color:var(--gold);}
+.inst .lead{font-family:var(--serif);font-weight:700;font-size:16.5px;line-height:1.7;color:var(--ink);margin-bottom:16px;padding-left:14px;border-left:3px solid var(--gold);}
+.founder{margin-bottom:24px;}
+.founder p{font-size:14.5px;line-height:1.9;color:var(--text);margin-bottom:10px;}
+.founder p b{color:var(--gold);}
+.big{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 30px;}
+.big .b{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:var(--r-md);padding:16px 10px;text-align:center;}
+.big .bn{font-family:"Inter";font-weight:800;font-size:24px;color:var(--gold);line-height:1.1;}
+.big .bl{font-size:12px;color:var(--dim);margin-top:6px;line-height:1.5;}
+.inst h3{font-family:var(--serif);font-weight:900;font-size:18px;margin:6px 0 14px;color:var(--ink);}
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:30px;}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:16px;}
+.tool.main{grid-column:1 / -1;border-color:var(--gold-dim);border-left:3px solid var(--gold);background:linear-gradient(165deg,var(--card) 0%,var(--card2) 100%);}
+.tool .tn{font-weight:900;font-size:15px;color:var(--ink);margin-bottom:4px;}
+.tool .tn em{font-style:normal;font-size:11px;font-weight:700;color:var(--on-accent);background:var(--gold);border-radius:50px;padding:1px 8px;margin-left:6px;vertical-align:2px;}
+.tool .tn em.soon{background:rgba(0,0,0,0.08);color:var(--dim);}
+.tool .td{font-size:13px;color:var(--dim);line-height:1.7;}
+.qa{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:4px 18px 16px;margin-bottom:30px;}
+.qa .q{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--ink);margin:14px 0 4px;}
+.qa .q::before{content:"Q";color:var(--gold);font-family:"Inter";font-weight:800;margin-right:8px;}
+.qa .a{font-size:13.8px;color:var(--dim);line-height:1.8;}
+.fit .f{display:flex;gap:10px;font-size:14px;line-height:1.7;margin-bottom:9px;color:var(--text);}
+.fit .f::before{content:"\2714";color:var(--gold);font-weight:700;flex-shrink:0;}
+.btn-wrap{text-align:center;margin-top:30px;background:linear-gradient(165deg,var(--card) 0%,var(--card2) 100%);border:1px solid var(--gold-dim);border-radius:var(--r-lg);padding:26px 18px;}
+.skbtn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--on-accent);border-radius:var(--pill);padding:17px 46px;font-weight:900;font-size:18px;box-shadow:0 8px 28px rgba(var(--a-rgb),0.30);transition:transform var(--bounce);position:relative;overflow:hidden;}
+.skbtn:hover{transform:translateY(-3px);}
+.skbtn::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent);transform:skewX(-25deg);animation:shine 3.4s ease-in-out infinite;}
+@keyframes shine{0%{left:-100%;}22%{left:160%;}100%{left:160%;}}
+.btn-note{margin-top:14px;font-size:12.5px;color:var(--dim);}
+
+.footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:22px 30px 40px;text-align:center;}
+.footer .fa{font-style:italic;font-size:14px;color:var(--gold);font-weight:700;}
+.footer .fc{font-size:11px;color:var(--faint);margin-top:8px;line-height:1.7;}
+
+/* ── 手機版 ── */
+@media(max-width:600px){
+  .hero{padding:40px 20px 28px;}
+  .hero h1{font-size:28px;}
+  .sec{padding:32px 20px;}
+  .sec h2{font-size:21px;}
+  .mid-intro .proof{flex-direction:column;align-items:flex-start;gap:6px;}
+  .mid-intro .num{display:flex;align-items:baseline;gap:8px;}
+  .mid-intro .num .d{font-size:13px;}
+  .mid-intro .txt{padding-left:0;border-left:none;}
+  .m-br{display:inline;}
+  .tbl{font-size:13px;}
+  .tbl th,.tbl td{padding:10px 10px;}
+  details.ch summary{padding:15px 16px;align-items:flex-start;}
+  .ch-t .en{display:block;margin-top:3px;}
+  .ch-mk{margin-top:4px;}
+  .inst{padding:34px 20px 32px;}
+  .inst h2{font-size:21px;}
+  .founder p{font-size:min(14.5px,calc((100vw - 40px) / 26.5));}
+  .big .bn{font-size:20px;}
+  .tools{grid-template-columns:1fr;}
+  .skbtn{font-size:16px;padding:15px 26px;white-space:nowrap;}
+  .footer{padding:20px 20px 36px;}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.className+=' js';</script>
+<div class="glow"><div class="g1"></div><div class="g2"></div></div>
+
+<!-- ═════ ① 懸浮按鈕：電腦版右側卡片、手機版底部按鈕。滑到最下面「關於我」時自動收起 ═════ -->
+<div class="float-cta" id="float-cta">
+  <a class="fc-pill" href="https://lin.ee/94wIC8F" target="_blank" rel="noopener">官方 LINE 諮詢 <span class="ar">→</span></a>
+  <div class="fc-card">
+    <div class="k">NEXT STEP</div>
+    <h4>做完這 10 題<br><span class="g">聊聊你想改善的那一題</span></h4>
+    <p>把你的分數和最想先做的題號傳給我，我們就從那一題開始聊。</p>
+    <a href="https://lin.ee/94wIC8F" target="_blank" rel="noopener">加入官方 LINE，直接諮詢</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ═════ 開頭：這頁是什麼 ═════ -->
+  <header class="hero">
+    <!-- 要換：kicker／標題／副標／說明／這頁有什麼 -->
+    <div class="kicker">NAVAL · 財富與生活自評</div>
+    <h1>納瓦爾寶典<br><span class="g">10 題自評</span></h1>
+    <div class="h-sub">你現在做的事，有多少會隨著時間變得更有價值？</div>
+    <p class="hero-sub">這 10 題從《納瓦爾寶典》的財富、判斷力與幸福篇挑選觀點。先按你現在的狀態選一個答案，再看看這個觀點怎麼用在生活裡。</p>
+    <!-- 自介卡：放在說明之後、「這頁有」之前 -->
+    <div class="mid-intro"><div class="who"><img src="data:image/jpeg;base64,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" alt="保羅所長形象照"><div><div class="nm">保羅所長</div><div class="tt2">資產放大顧問｜@baoluosay</div></div></div><div class="slogan">讓錢真正幫你工作</div><div class="proof"><div class="num"><div class="d">從親身經歷出發</div><div class="v">20年</div></div><div class="txt"><b>我用自己的經驗</b><br class="m-br">帶你搞懂銀行規則、資產配置和現金流。</div></div></div>
+
+    <nav class="toc">
+      <div class="tt">這頁有</div>
+      <ul>
+        <li><a href="#s-hooks">開始自評<i>↓</i></a></li>
+        <li><a href="#s-prompt">看計分方式<i>↓</i></a></li>
+        <li><a href="#s-check">看我的結果<i>↓</i></a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <section class="sec" id="s-hooks">
+    <span class="sec-tag">10 題自評</span>
+    <h2>看看你現在做到了哪些</h2>
+    <p>每題先選一個答案，下面就會展開自評句。看完可以改選，最後一次選擇會計入總分。</p>
+    <div class="pos">
+      <label for="quiz-progress" id="quiz-count" role="status">已完成 0／10 題</label>
+      <progress id="quiz-progress" value="0" max="10" style="display:block;width:100%;margin-top:8px">0／10</progress>
+    </div>
+    <form id="wealth-quiz">
+      <fieldset class="ch" style="min-width:0;margin:0 0 16px;padding:12px 14px 14px">
+        <legend style="padding:0 6px;font-weight:700"><span class="g">01</span>　培養自己的獨特專長</legend>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q1" value="10" aria-controls="answer-1" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我已經做</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q1" value="6" aria-controls="answer-1" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我在學習</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q1" value="0" aria-controls="answer-1" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我不想做</span></label>
+        </div>
+        <div aria-live="polite">
+          <div id="answer-1" hidden>
+            <div class="pos" style="margin:12px 0 0"><strong>這一題的自評句</strong><br>我有一項出於好奇、願意持續鑽研，也能幫別人解決問題的專長。</div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="ch" style="min-width:0;margin:0 0 16px;padding:12px 14px 14px">
+        <legend style="padding:0 6px;font-weight:700"><span class="g">02</span>　和願意走長期的人合作</legend>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q2" value="10" aria-controls="answer-2" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我已經做</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q2" value="6" aria-controls="answer-2" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我在學習</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q2" value="0" aria-controls="answer-2" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我不想做</span></label>
+        </div>
+        <div aria-live="polite">
+          <div id="answer-2" hidden>
+            <div class="pos" style="margin:12px 0 0"><strong>這一題的自評句</strong><br>我選擇合作對象時，會考慮彼此能不能長期信任、一起做事。</div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="ch" style="min-width:0;margin:0 0 16px;padding:12px 14px 14px">
+        <legend style="padding:0 6px;font-weight:700"><span class="g">03</span>　用自己的名字對成果負責</legend>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q3" value="10" aria-controls="answer-3" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我已經做</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q3" value="6" aria-controls="answer-3" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我在學習</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q3" value="0" aria-controls="answer-3" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我不想做</span></label>
+        </div>
+        <div aria-live="polite">
+          <div id="answer-3" hidden>
+            <div class="pos" style="margin:12px 0 0"><strong>這一題的自評句</strong><br>我願意把名字放在自己做的成果上，也願意在出問題時出面處理。</div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="ch" style="min-width:0;margin:0 0 16px;padding:12px 14px 14px">
+        <legend style="padding:0 6px;font-weight:700"><span class="g">04</span>　累積自己擁有的資產</legend>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q4" value="10" aria-controls="answer-4" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我已經做</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q4" value="6" aria-controls="answer-4" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我在學習</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q4" value="0" aria-controls="answer-4" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我不想做</span></label>
+        </div>
+        <div aria-live="polite">
+          <div id="answer-4" hidden>
+            <div class="pos" style="margin:12px 0 0"><strong>這一題的自評句</strong><br>我有在累積自己擁有的資產，例如事業股權、作品版權，或能持續銷售的產品。</div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="ch" style="min-width:0;margin:0 0 16px;padding:12px 14px 14px">
+        <legend style="padding:0 6px;font-weight:700"><span class="g">05</span>　用槓桿放大一次投入的成果</legend>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q5" value="10" aria-controls="answer-5" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我已經做</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q5" value="6" aria-controls="answer-5" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我在學習</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q5" value="0" aria-controls="answer-5" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我不想做</span></label>
+        </div>
+        <div aria-live="polite">
+          <div id="answer-5" hidden>
+            <div class="pos" style="margin:12px 0 0"><strong>這一題的自評句</strong><br>遇到重複在做的事，我會把做法整理成範本、影片或工具，讓同一份成果可以反覆使用。</div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="ch" style="min-width:0;margin:0 0 16px;padding:12px 14px 14px">
+        <legend style="padding:0 6px;font-weight:700"><span class="g">06</span>　讓判斷力成為別人願意付費的價值</legend>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q6" value="10" aria-controls="answer-6" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我已經做</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q6" value="6" aria-controls="answer-6" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我在學習</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q6" value="0" aria-controls="answer-6" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我不想做</span></label>
+        </div>
+        <div aria-live="polite">
+          <div id="answer-6" hidden>
+            <div class="pos" style="margin:12px 0 0"><strong>這一題的自評句</strong><br>我有一個熟悉的領域，能幫別人看懂選項、判斷取捨，做出更好的決定。</div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="ch" style="min-width:0;margin:0 0 16px;padding:12px 14px 14px">
+        <legend style="padding:0 6px;font-weight:700"><span class="g">07</span>　把時間留給最重要的事</legend>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q7" value="10" aria-controls="answer-7" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我已經做</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q7" value="6" aria-controls="answer-7" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我在學習</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q7" value="0" aria-controls="answer-7" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我不想做</span></label>
+        </div>
+        <div aria-live="polite">
+          <div id="answer-7" hidden>
+            <div class="pos" style="margin:12px 0 0"><strong>這一題的自評句</strong><br>我每週會先替最重要的事留出時間，並推掉會擠壓這段時間的低優先事項。</div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="ch" style="min-width:0;margin:0 0 16px;padding:12px 14px 14px">
+        <legend style="padding:0 6px;font-weight:700"><span class="g">08</span>　從自己真的想知道的事開始讀</legend>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q8" value="10" aria-controls="answer-8" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我已經做</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q8" value="6" aria-controls="answer-8" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我在學習</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q8" value="0" aria-controls="answer-8" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我不想做</span></label>
+        </div>
+        <div aria-live="polite">
+          <div id="answer-8" hidden>
+            <div class="pos" style="margin:12px 0 0"><strong>這一題的自評句</strong><br>遇到我想弄懂的問題，我會主動找一本書或一篇文章來讀。</div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="ch" style="min-width:0;margin:0 0 16px;padding:12px 14px 14px">
+        <legend style="padding:0 6px;font-weight:700"><span class="g">09</span>　練習把注意力帶回當下</legend>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q9" value="10" aria-controls="answer-9" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我已經做</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q9" value="6" aria-controls="answer-9" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我在學習</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q9" value="0" aria-controls="answer-9" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我不想做</span></label>
+        </div>
+        <div aria-live="polite">
+          <div id="answer-9" hidden>
+            <div class="pos" style="margin:12px 0 0"><strong>這一題的自評句</strong><br>吃飯、散步或跟人聊天時，我會有意識地放下手機，專心感受眼前正在發生的事。</div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="ch" style="min-width:0;margin:0 0 16px;padding:12px 14px 14px">
+        <legend style="padding:0 6px;font-weight:700"><span class="g">10</span>　看清楚自己正在追什麼</legend>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q10" value="10" aria-controls="answer-10" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我已經做</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q10" value="6" aria-controls="answer-10" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我在學習</span></label>
+          <label class="ck" style="margin:0;min-height:44px;padding:8px 10px;cursor:pointer"><input type="radio" name="q10" value="0" aria-controls="answer-10" style="width:16px;height:16px;margin:0;accent-color:var(--a)"><span>我不想做</span></label>
+        </div>
+        <div aria-live="polite">
+          <div id="answer-10" hidden>
+            <div class="pos" style="margin:12px 0 0"><strong>這一題的自評句</strong><br>當我覺得「等我達到那個目標，才會開心」時，我會停下來想，這個目標值得我現在付出的代價嗎？</div>
+          </div>
+        </div>
+      </fieldset>
+      <a href="#s-check" class="skbtn">看我的結果 ↓</a>
+    </form>
+  </section>
+
+  <section class="sec" id="s-prompt">
+    <span class="sec-tag">計分方式</span>
+    <h2>你的分數怎麼算</h2>
+    <div class="tblwrap"><table class="tbl">
+      <thead><tr><th scope="col">每題的選項</th><th scope="col">分數</th></tr></thead>
+      <tbody><tr><td>我已經做</td><td>10</td></tr><tr><td>我在學習</td><td>6</td></tr><tr><td>我不想做</td><td>0</td></tr></tbody>
+    </table></div>
+    <p>把 10 題的得分加起來，滿分 100 分。</p>
+  </section>
+
+  <section class="sec" id="s-check">
+    <span class="sec-tag">自評結果</span>
+    <h2>我的自評分數</h2>
+    <div id="quiz-status" class="pos" role="status" aria-atomic="true">答完 10 題後，這裡會顯示你的分數。</div>
+    <div id="quiz-complete" hidden>
+      <div class="cp">
+        <div class="pl">你的自評結果</div>
+        <button type="button" class="copy-btn">複製</button>
+        <pre id="quiz-copy"></pre>
+      </div>
+    </div>
+    <div class="btn-wrap">
+      <h3>想知道自己下一步可以怎麼做？</h3>
+      <p>把你的分數和最想先做的題號傳給我，我們就從那一題開始聊。</p>
+      <a class="skbtn" href="https://lin.ee/94wIC8F" target="_blank" rel="noopener">加入官方 LINE，直接諮詢 →</a>
+    </div>
+  </section>
+  <!-- ═════ ③ 關於我：每一頁都一樣，不跟著乾貨改 ═════ -->
+  <section class="inst" id="institute"><div class="kk">ABOUT · 保羅所長</div><h2>我曾經很會賺錢<br><span class="g">卻不知道怎麼把錢留下來</span></h2><p class="lead">我用20年的經歷，帶你一起看懂資產配置，讓錢真正幫你工作。</p><div class="founder"><p>年輕時，我在北京經營國際夜店，20幾歲就曾經月入百萬。當時我以為賺得多就是有錢，卻沒有好好建立資產和現金流。</p><p>後來經歷事業起伏，也曾因錯誤的信任被騙走600萬。我才明白：<b>會賺錢，不代表會管理錢。</b>現在，我把自己走過的路，整理成能幫你少走彎路的財商知識。</p></div><h3>我能幫你什麼？</h3><div class="tools"><div class="tool main"><div class="tn">資產放大與現金流規劃<em>主打</em></div><div class="td">重新盤點資產、負債與現金流，評估資產運用的可能性與風險。</div></div><div class="tool"><div class="tn">銀行規則與資金運用</div><div class="td">了解銀行怎麼評估財務條件、貸款成本及還款能力。</div></div><div class="tool"><div class="tn">財商思維與資產配置</div><div class="td">從努力賺錢，到開始理解怎麼留下錢、管理錢。</div></div></div><h3>你可能卡在這幾件事</h3><div class="qa"><div class="q">我沒有很多錢，也能學資產配置嗎？</div><div class="a">可以。先把收入、支出、負債和資產搞清楚，就是第一步。</div><div class="q">銀行、貸款和投資聽起來很難？</div><div class="a">我會把工具的用途、成本與風險拆開來講，讓你先看懂，再判斷適不適合自己。</div></div><h3>適合這樣的人</h3><div class="fit"><div class="f">收入不錯，卻一直存不到錢的人</div><div class="f">已有房子、存款或投資，卻不知道怎麼安排的人</div><div class="f">希望逐步建立其他現金流來源的人</div></div><div class="btn-wrap"><a class="skbtn" href="https://lin.ee/94wIC8F" target="_blank" rel="noopener">加入我的官方Line →</a><div class="btn-note">加入官方 LINE，了解財商學習與資產配置相關資訊。</div></div></section>
+
+  <footer class="footer"><div class="fa">保羅所長 @baoluosay</div><div class="fc">Instagram / Threads：@baoluosay<br>本頁內容為財商教育及情境試算，不構成個人化投資或借貸建議。個別成果不代表保證收益。</div></footer>
+
+</div>
+
+<script>
+// 複製：每個灰底框右上角的按鈕，複製同一框裡的文字
+document.querySelectorAll('.copy-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var txt = btn.parentElement.querySelector('pre').innerText;
+    function done(){ btn.textContent = '已複製'; setTimeout(function(){ btn.textContent = '複製'; }, 1800); }
+    function fallback(){ var t=document.createElement('textarea'); t.value=txt; document.body.appendChild(t); t.select(); try{document.execCommand('copy');}catch(e){} t.remove(); done(); }
+    if(navigator.clipboard){ navigator.clipboard.writeText(txt).then(done, fallback); } else { fallback(); }
+  });
+});
+
+// 頁內跳轉：不靠網址的 #，直接捲過去（預覽視窗、IG 內建瀏覽器裡 # 有時不會動）
+document.querySelectorAll('a[href^="#"]').forEach(function(link){
+  link.addEventListener('click', function(e){
+    var target = document.getElementById(link.getAttribute('href').slice(1));
+    if(!target) return;
+    e.preventDefault();
+    target.classList.add('vis');
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+// 懸浮按鈕：「關於我」出現在畫面上時收起，避免兩顆按鈕同時出現
+var fc = document.getElementById('float-cta');
+var inst = document.getElementById('institute');
+if(fc && inst && 'IntersectionObserver' in window){
+  new IntersectionObserver(function(es){
+    fc.classList.toggle('hide', es[0].isIntersecting);
+  }, {threshold:0.05}).observe(inst);
+}
+
+// 捲動淡入
+function reveal(){
+  var vh = window.innerHeight;
+  document.querySelectorAll('.fade:not(.vis)').forEach(function(el){
+    if(el.getBoundingClientRect().top < vh*0.94) el.classList.add('vis');
+  });
+}
+window.addEventListener('scroll', reveal, {passive:true});
+window.addEventListener('load', reveal);
+reveal();
+setTimeout(function(){ document.querySelectorAll('.fade').forEach(function(el){ el.classList.add('vis'); }); }, 2500);
+</script>
+
+<!--
+═══════════════════════════════════════════
+學員落地頁模板（奇點研究所 × D11）
+═══════════════════════════════════════════
+· 用兩層大括號包起來的地方都要換成自己的內容，換完不能留下任何一組
+· 配色：第 2 行 <html data-theme="gold"> 改成 gold／green／navy／rose
+· 大頭照：跟這個檔案放在同一個資料夾，檔名 photo.jpg；或直接嵌成 data:image
+· 三個按鈕（懸浮按鈕、懸浮卡、最下面）都指向同一個連結
+· 數字只放真的，沒有就刪掉那一塊
+═══════════════════════════════════════════
+-->
+
+<script>
+(function () {
+  const form = document.getElementById('wealth-quiz');
+  const questions = Array.from(form.querySelectorAll('fieldset'));
+  const total = questions.length;
+  const count = document.getElementById('quiz-count');
+  const progress = document.getElementById('quiz-progress');
+  const status = document.getElementById('quiz-status');
+  const complete = document.getElementById('quiz-complete');
+  const copy = document.getElementById('quiz-copy');
+
+  function updateResult() {
+    const answers = [];
+    questions.forEach(function (question) {
+      const answer = question.querySelector('input:checked');
+      question.querySelector('[id^="answer-"]').hidden = !answer;
+      if (answer) answers.push(answer);
+    });
+    const answered = answers.length;
+    count.textContent = '已完成 ' + answered + '／' + total + ' 題';
+    progress.value = answered;
+    complete.hidden = answered !== total;
+    if (complete.hidden) {
+      status.textContent = '已完成 ' + answered + ' 題，還差 ' + (total - answered) + ' 題就能看分數。';
+      return;
+    }
+
+    const score = answers.reduce((sum, answer) => sum + Number(answer.value), 0);
+    let message = '先挑一題開始練。可以多看保羅所長的影片。從你現在最有感的一題開始，找一個這週就做得到的行動。';
+    if (score === 100) {
+      message = '你已經把這些觀點用在生活裡。從培養專長到安排自己的時間，你已經開始用日常的選擇累積長期的成果。';
+    } else if (score >= 60) {
+      message = '你正在把這些觀點變成習慣。回頭看你選「我在學習」的題目，挑一題，想想這週可以做哪一個小動作。';
+    }
+
+    const result = score + '／100 分';
+    status.textContent = result + '　' + message;
+    copy.textContent = '納瓦爾寶典 10 題自評：' + result + '\n' + message;
+  }
+
+  form.addEventListener('change', updateResult);
+  window.addEventListener('pageshow', updateResult);
+  updateResult();
+}());
+</script>
+</body>
+</html>
